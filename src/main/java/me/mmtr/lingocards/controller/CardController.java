@@ -22,7 +22,7 @@ public class CardController {
     }
 
     @GetMapping("/add")
-    public String add(@ModelAttribute Card card, Model model, @RequestParam Long cardSetId) {
+    public String add(@ModelAttribute Card card, Model model) {
         model.addAttribute("card", card);
 
         return "card";
