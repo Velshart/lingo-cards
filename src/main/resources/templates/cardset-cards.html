@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2>Cards in this set:</h2><br>
+<div th:each="card : ${cardSet.getCards()}">
+    <div>
+        <div th:text="${card.getWord()}"></div>
+        <div th:text="${card.getDefinition()}"></div>
+
+        <form method="get" th:action="@{/card/update/{id}(id=${card.id})}">
+            <input type="hidden" name="cardSetId" th:value="${cardSet.id}">
+            <input type="submit" value="Details">
+        </form>
+
+        <a th:href="@{/card/update/{id}(id=${card.id})}">Details</a>
+        <form method="post" th:action="@{/card/delete}">
+            <input type="hidden" name="id" th:value="${card.id}">
+            <input type="submit" value="Delete">
+        </form>
+    </div>
+</div><br>
+
+<form method="get" th:action="@{/card/add}">
+    <input type="hidden" name="cardSetId" th:value="${cardSet.id}">
+    <input type="submit" value="New card">
+</form>
+
+</body>
+</html>

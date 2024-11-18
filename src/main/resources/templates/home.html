@@ -5,6 +5,22 @@
     <title>Home / lingo-cards</title>
 </head>
 <body>
+<h2>Your Sets: </h2><br>
+
+<div th:each="cardSet : ${cardsets}">
+    <div>
+        <div th:text="${cardSet.getName()}"></div>
+        <a th:href="@{/cardset/update/{id}(id=${cardSet.id})}">Details</a>
+        <form method="post" th:action="@{/cardset/delete}">
+            <input type="hidden" name="id" th:value="${cardSet.id}">
+            <input type="submit" value="Delete">
+        </form>
+    </div>
+</div><br>
+
+<form method="get" th:action="@{/cardset/add}">
+    <input type="submit" value="Create new set">
+</form>
 
 </body>
 </html>

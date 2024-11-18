@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <form method="post">
+        <input type="text" placeholder="Name" th:field="*{cardSet.name}" required>
+        <input type="text" placeholder="Description" th:field="*{cardSet.description}">
+        <input type="submit" value="Save">
+    </form>
+</div>
+
+<form method="get" th:action="@{/cardset/cards/{id}(id=${cardSet.id})}">
+    <button type="submit">Cards</button>
+</form><br>
+
+<form th:action="@{/home}" method="get">
+    <button type="submit">Exit</button>
+</form><br>
+
+</body>
+</html>

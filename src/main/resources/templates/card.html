@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+
+    <form method="post">
+        <input type="text" placeholder="Word" class="input-field" th:field="*{card.word}" required>
+        <input type="text" placeholder="Definition" class="input-field" th:field="*{card.definition}" required>
+        <input type="submit" value="Save">
+    </form><br>
+
+    <form th:action="@{/home}" method="get">
+        <button type="submit">Exit</button>
+    </form><br>
+</div>
+
+</body>
+</html>

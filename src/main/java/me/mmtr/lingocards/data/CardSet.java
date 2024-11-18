@@ -26,4 +26,8 @@ public class CardSet {
 
     @OneToMany(mappedBy = "cardSet", cascade = CascadeType.ALL, orphanRemoval = true)
     List<Card> cards = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 }

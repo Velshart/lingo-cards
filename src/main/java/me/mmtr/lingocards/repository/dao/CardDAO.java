@@ -43,12 +43,26 @@ public class CardDAO implements ICardDAO {
 
     @Override
     public void saveOrUpdate(Card card) {
-        if (getById(card.getId()).isEmpty()) {
-            entityManager.persist(card);
-        }else {
             entityManager.merge(card);
-        }
     }
+
+//    @Override
+//    public void saveOrUpdate(Card card) {
+//        if (card.getId() == null || !entityManager.contains(card)) {
+//            entityManager.merge(card);
+//        } else {
+//            entityManager.persist(card);
+//        }
+//    }
+
+//    @Override
+//    public void saveOrUpdate(Card card) {
+//        if (getById(card.getId()).isEmpty()) {
+//            entityManager.persist(card);
+//        }else {
+//            entityManager.merge(card);
+//        }
+//    }
 
     @Override
     public void delete(Long id) {

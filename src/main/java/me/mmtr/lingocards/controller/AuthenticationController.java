@@ -35,11 +35,6 @@ public class AuthenticationController {
         return "login";
     }
 
-    @GetMapping("/home")
-    public String home() {
-        return "home";
-    }
-
     @GetMapping("/register")
     public String registrationForm(Model model) {
         UserDTO userDTO = new UserDTO();
